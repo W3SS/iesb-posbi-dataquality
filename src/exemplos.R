@@ -232,9 +232,9 @@ library(dplyr)
 
 # faz uma agregação de fumantes por sexo
 fumantes.por.sexo <- censo %>%
-        filter(Fuma == 1) %>%
-        group_by(Sexo) %>%
-        summarise(quantidade=n())
+  filter(Fuma == 1) %>%
+  group_by(Sexo) %>%
+  summarise(quantidade=n())
 fumantes.por.sexo
 
 # substituir Fem. por F, e Masc. por M
@@ -248,15 +248,15 @@ censo[masc.errados, ]$Sexo <- "M"
 library(stringr)
 censo$Salario <- as.numeric(str_replace(censo$Salario, "\\.", ""))
 fumantes.por.sexo <- censo %>%
-        filter(Fuma == 1) %>%
-        group_by(Sexo) %>%
-        summarise(quantidade=n()) %>%
-        arrange(desc(quantidade))
+  filter(Fuma == 1) %>%
+  group_by(Sexo) %>%
+  summarise(quantidade=n()) %>%
+  arrange(desc(quantidade))
 fumantes.por.sexo
 
 quantidade.por.sexo.fumante <- censo %>%
-        group_by(Sexo, Fuma) %>%
-        summarise(quantidade=n())
+  group_by(Sexo, Fuma) %>%
+  summarise(quantidade=n())
 quantidade.por.sexo.fumante
 
 # Função merge
